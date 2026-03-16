@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Blinky. Blinkin'. Blink. &trade;</title>
+    <style>
+      body {
+        background-color: #1a1a1a; 
+        color: white; 
+        font-family: "Lucida Console", "Courier New", monospace; 
+        text-align: center;
+        overflow: hidden; 
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1 id="title" style="font-size: 85px; margin-top: 20vh;">Blinkin'&trade;</h1>
+    </header>
+
+    <script>
+      let hue = 0;
+
+      function blink() {
+        const title = document.getElementById('title');
+        
+        // We create the color string first
+        let rainbow = "hsl(" + hue + ", 100%, 50%)";
+
+        // Apply it to the text and the shadow
+        title.style.color = rainbow;
+        title.style.textShadow = "0 0 30px " + rainbow + ", 0 0 60px " + rainbow;
+
+        // Move the rainbow forward
+        hue = (hue + 15) % 360;
+
+        setTimeout(blink, 50);
+      }
+
+      blink();
+    </script>
+  </body>
+</html>
